@@ -1,11 +1,13 @@
 console.clear();
 
-/* 
+/*
+
 =====================================================================
 
                 Data Types Interview Questions 🔥
 
 =====================================================================
+
 */
 
 console.log("Data Types Interview Questions");
@@ -84,29 +86,9 @@ let myFavoriteBigInt = 1234567890123456789012345678901234567890n; // bigint
 
 let myFavoriteSymbol = Symbol("id"); // symbol
 
-/*
-
-4. What are the non-primitive data types in JavaScript?
-
-👉 The non-primitive data types are Objects, Arrays, Functions, Maps, Sets, WeakMap, WeakSet etc.
-
-*/
-
-/*
-
-5. How do you check if a variable is an array in JavaScript?
-
-👉 Use `Array.isArray(variable)` method.
-
-*/
-
-console.log(Array.isArray([1, 2, 3])); // true
-
-console.log(Array.isArray({ name: "John" })); // false
-
 /* 
 
-6. What is the difference between implicit and explicit type coercion?
+4. What is the difference between implicit and explicit type coercion?
 
 👉 Implicit Coercion happens automatically by JavaScript.
 
@@ -116,15 +98,15 @@ console.log(Array.isArray({ name: "John" })); // false
 
 // Implicit
 
-console.log(10 + "5"); // "105" (number converted to string)
+console.log(10 + "5"); // "105"
 
 // Explicit
 
-console.log(Number("5") + 10); // 15 (string converted to number)
+console.log(Number("5") + 10); // 15
 
 /* 
 
-7. Convert a number to a string.
+5. Convert a number to a string.
 
 👉 Use `toString()` or concatenate with `""`.
 
@@ -134,11 +116,11 @@ let num = 123;
 
 console.log(num.toString(), typeof num.toString()); // "123" string
 
-console.log("" + num, typeof "" + num); // "123" string
+console.log("" + num, typeof ("" + num)); // "123" string
 
 /* 
 
-8. Convert a string to a number.
+6. Convert a string to a number.
 
 👉 Use `Number()` or `+` operator.
 
@@ -150,7 +132,7 @@ console.log(+"50", typeof +"50"); // 50 number
 
 /* 
 
-9. What is the difference between parseInt() and parseFloat()?
+7. What is the difference between parseInt() and parseFloat()?
 
 👉 `parseInt()` converts a string to an integer.
 
@@ -164,11 +146,11 @@ console.log(parseFloat("99.99")); // 99.99
 
 /* 
 
-10. What are truthy and falsy values?
+8. What are truthy and falsy values?
 
-👉 Truthy values: non-empty strings, numbers (except 0), objects, arrays.
+👉 Truthy values: non-empty strings, numbers (except 0), true, objects, arrays.
 
-👉 Falsy values: `false`, `0`, `""`, `null`, `undefined`, `NaN`.
+👉 Falsy values: false, 0, "", null, undefined, NaN.
 
 */
 
@@ -178,7 +160,7 @@ console.log(Boolean("")); // false
 
 /* 
 
-11. How to check if a variable is `NaN`?
+9. How to check if a variable is `NaN`?
 
 👉 Use `Number.isNaN(value)`
 
@@ -190,15 +172,17 @@ console.log(Number.isNaN("hello")); // false
 
 /* 
 
-12. What is the output of `typeof NaN`?
+10. What is the output of `typeof NaN`?
+
+👉 "number" — NaN is still considered a numeric value in JavaScript.
 
 */
 
-console.log(typeof NaN); // number ❗(weird JS behaviour)
+console.log(typeof NaN); // number ❗(weird JS behavior)
 
 /*
 
-13. How to check if a number is finite?
+11. How to check if a number is finite?
 
 👉 Use `Number.isFinite(value)`
 
@@ -210,9 +194,9 @@ console.log(Number.isFinite(Infinity)); // false
 
 /* 
 
-14. What is Symbol in JavaScript?
+12. What is Symbol in JavaScript?
 
-👉 `Symbol` is a unique primitive value used for object properties.
+👉 `Symbol` is a unique primitive value used for object property keys to avoid name collisions.
 
 */
 
@@ -220,7 +204,41 @@ const sym1 = Symbol("id");
 
 const sym2 = Symbol("id");
 
-console.log(sym1 === sym2); // false (each symbol is unique)
+console.log(sym1 === sym2); // false
+
+/* 
+
+13. What is BigInt in JavaScript?
+
+👉 `BigInt` is a primitive used to represent very large integers beyond Number.MAX_SAFE_INTEGER.
+
+*/
+
+let bigNum = 987654321987654321987654321n;
+
+console.log(bigNum, typeof bigNum); // bigint
+
+/* 
+
+14. What is the default value of uninitialized variables?
+
+👉 If a variable is declared but not assigned, it holds the value `undefined`.
+
+*/
+
+let x;
+
+console.log(x); // undefined
+
+/* 
+
+15. Can typeof null be "object"?
+
+👉 Yes, due to a historical bug in JavaScript, `typeof null` returns `"object"`.
+
+*/
+
+console.log(typeof null); // object ❗ 
 
 /* 
 
@@ -280,37 +298,3 @@ console.log(undefined === null); // false
 // 1️⃣1️⃣ Comparing Boolean values
 
 console.log(true == "1"); // true (string "1" is converted to number)
-
-// 1️⃣2️⃣ Logical OR (||) behavior
-
-console.log(null || 5); // 5 (null is falsy)
-
-console.log(1 || 10); // 1 (1 is truthy)
-
-// 1️⃣3️⃣ Logical AND (&&) behavior
-
-console.log(1 && "Hello"); // "Hello" (1 is truthy, so returns second value)
-
-console.log(0 && "World"); // 0 (0 is falsy, so returns first value)
-
-// 1️⃣4️⃣ Double NOT (!!) coercion
-
-console.log(!!"Hello"); // true
-
-console.log(!!0); // false
-
-// 1️⃣5️⃣ Using `typeof` in strange cases
-
-console.log(typeof null); // object ❗
-
-console.log(typeof NaN); // number ❗
-
-console.log(typeof function () { }); // function ❗
-
-console.log(typeof []); // object ❗ (arrays are objects)
-
-// Extra: Checking empty object
-
-console.log(Object.keys({}).length === 0); // true (empty object)
-
-console.log(Object.keys({ a: 1 }).length === 0); // false (non-empty object)
