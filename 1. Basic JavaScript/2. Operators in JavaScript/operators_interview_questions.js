@@ -39,6 +39,8 @@ let age = 18;
 
 let haveDrivingLicense = true;
 
+// Using Ternary Operator
+
 console.log(age >= 18 && haveDrivingLicense ? "You are eligible to drive." : "You are not eligible to drive.");
 
 /*
