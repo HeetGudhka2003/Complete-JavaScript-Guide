@@ -192,89 +192,7 @@ else {
     console.log(`✅ Withdrawal successful! 💰 Remaining balance: $${balance}`);
 }
 
-// 8️⃣ Grade Calculator
-
-let percentage = 85;
-
-// If percentage is between 90 and 100, print "Grade: A".
-
-if (percentage >= 90 && percentage <= 100) {
-
-    console.log("🎓 Grade: A");
-}
-
-// If percentage is between 80 and 90, print "Grade: B".
-
-else if (percentage >= 80) {
-
-    console.log("🎓 Grade: B");
-}
-
-// If percentage is between 70 and 80, print "Grade: C".
-
-else if (percentage >= 70) {
-
-    console.log("🎓 Grade: C");
-}
-
-// If percentage is between 60 and 70, print "Grade: D".
-
-else if (percentage >= 60) {
-
-    console.log("🎓 Grade: D");
-}
-
-// Else, print "Grade: F".
-
-else {
-
-    console.log("🎓 Grade: F");
-}
-
-// 9️⃣ Armstrong Number Checker (Three-digit only): If a number is an Armstrong number, it is equal to the sum of its own digits raised to the power of the number of digits.
-
-// 153 = 1^3 + 5^3 + 3^3
-
-let num = 153;
-
-// Storing the original number for later use
-
-let originalNum = num;
-
-// Initialize a variable to store the sum
-
-let sum = 0;
-
-// Loop through each digit and calculate the sum
-
-while (num > 0) {
-
-    // Get the last digit
-
-    let digit = num % 10;
-
-    // Add the digit to the sum
-
-    sum += digit ** 3;
-
-    // Remove the last digit
-
-    num = Math.floor(num / 10);
-}
-
-// Check if the sum is equal to the original number
-
-if (sum === originalNum) {
-
-    console.log(`🔢 ${originalNum} is an Armstrong Number.`);
-}
-
-else {
-
-    console.log(`🔢 ${originalNum} is NOT an Armstrong Number.`);
-}
-
-// 1️⃣0️⃣ Switch Statement Example
+// 8️⃣ Switch Statement Example
 
 let day = 3;
 
@@ -302,3 +220,44 @@ switch (day) {
 }
 
 console.log(`📆 Today is: ${dayName}`);
+
+// 9️⃣ Calculator
+
+let operator = "+";
+
+let number1 = 10;
+
+let number2 = 5;
+
+let result;
+
+switch (operator) {
+
+    // If operator is +, then add number1 and number2
+
+    case "+": result = number1 + number2; break;
+
+    // If operator is -, then subtract number1 and number2
+
+    case "-": result = number1 - number2; break;
+
+    // If operator is *, then multiply number1 and number2
+
+    case "*": result = number1 * number2; break;
+
+    // If operator is /, then divide number1 and number2
+
+    case "/": result = number1 / number2; break;
+
+    // If operator is %, then modulo number1 and number2
+
+    case "%": result = number1 % number2; break;
+
+    // If operator is **, then raise number1 to the power of number2
+
+    case "**": result = number1 ** number2; break;
+
+    default: result = "Invalid operator"; break;
+}
+
+console.log(`${number1} ${operator} ${number2} = ${result}`);
