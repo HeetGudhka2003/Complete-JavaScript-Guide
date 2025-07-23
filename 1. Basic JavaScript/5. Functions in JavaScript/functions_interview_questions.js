@@ -4,7 +4,7 @@ console.clear();
 
 =====================================================================
 
-        Beginner-Level JS Interview Questions using Functions 🔥
+        Interview Questions using Functions 🔥
 
 =====================================================================
 
