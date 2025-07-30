@@ -187,9 +187,9 @@ function mostFrequentChar(str) {
     let freq = {};
 
     let maxChar = ''
-    
+
     let maxCount = 0;
-    
+
     for (let char of str) {
 
         freq[char] = (freq[char] || 0) + 1;
@@ -251,8 +251,8 @@ function compressString(str) {
         if (str[i] === str[i + 1]) {
 
             count++;
-        } 
-        
+        }
+
         else {
 
             compressed += str[i] + count;
@@ -300,14 +300,14 @@ function isBalanced(str) {
     let stack = [];
 
     let pairs = { ')': '(', '}': '{', ']': '[' };
-    
+
     for (let char of str) {
 
         if (Object.values(pairs).includes(char)) {
 
             stack.push(char);
-        } 
-        
+        }
+
         else if (pairs[char]) {
 
             if (stack.pop() !== pairs[char]) return false;
@@ -330,7 +330,7 @@ function longestCommonPrefix(arr) {
     if (!arr.length) return "";
 
     let prefix = arr[0];
-    
+
     for (let str of arr) {
 
         while (str.indexOf(prefix) !== 0) {
@@ -366,7 +366,7 @@ console.log("Is 'erbottlewat' a rotation of 'waterbottle'? " + isRotation("water
 */
 
 function removeDuplicates(str) {
-    
+
     return [...new Set(str)].join('');
 }
 
