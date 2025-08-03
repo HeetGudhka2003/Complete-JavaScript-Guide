@@ -113,7 +113,7 @@ const sortedActiveUsers = users
     .filter((user) => user.isActive)
 
     .sort((a, b) => b.age - a.age)
-    
+
     .map((user) => user);
 
 console.log("⬇️ Sorted Active Users (by age):", sortedActiveUsers);
