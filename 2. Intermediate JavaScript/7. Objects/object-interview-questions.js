@@ -1,50 +1,69 @@
+// Clear the console before running this script for cleaner output
+
 console.clear();
 
-/*
-
+/* 
 =====================================================================
 
                 Object Interview Questions 🚀
 
-=====================================================================
-
+===================================================================== 
+   
 */
 
 /*
 
-1. Write a function that compares two objects to determine if they have the same properties and values.
+1. Compare two objects for equality in terms of properties and values.
 
 */
 
+// Define first object with 3 properties
+
 let obj1 = { name: "Vinod", age: 30, isStudent: false };
+
+// Define second object with 4 properties (extra 'country')
 
 let obj2 = { name: "Vinod", age: 30, isStudent: false, country: "India" };
 
+// Function to compare two objects
+
 const compareObjects = (obj1, obj2) => {
+
+    // Compare the number of keys in both objects
 
     if (Object.keys(obj1).length !== Object.keys(obj2).length) {
 
-        return false;
+        return false; // If not equal in length, they are not equal
     }
+
+    // Loop through each key in obj1
 
     for (let key in obj1) {
 
+        // Check if the value for the current key is not equal in both objects
+
         if (obj1[key] !== obj2[key]) {
 
-            return false;
+            return false; // If mismatch found, return false
         }
     }
+
+    // If all keys matched, return true
 
     return true;
 }
 
-console.log(compareObjects(obj1, obj2));
+// Test the function
+
+console.log(compareObjects(obj1, obj2)); // false
 
 /*
 
-2. Given an object representing a student, write a function to add a new subject with it's corresponding grade to the student's record. Also check if the grade property exists.
+2. Add a new subject & grade to a student's record.
 
 */
+
+// Student object with nested grades object
 
 let studentData = {
 
@@ -62,19 +81,31 @@ let studentData = {
     }
 }
 
+// Function to add a subject and marks to the student object
+
 const addSubject = (student, subject, marks) => {
+
+    // Check if 'grades' property exists
 
     if (!student.grades) {
 
-        student.grades = {};
+        student.grades = {}; // If not, create it
     }
+
+    // Add the subject and marks to grades
 
     return (student.grades[subject] = marks);
 }
 
+// Add "English" subject with marks 95
+
 addSubject(studentData, "English", 95);
 
+// Print updated student data
+
 console.log(studentData);
+
+// Employee object with nested personalInfo object
 
 let employeeData = {
 
@@ -90,38 +121,46 @@ let employeeData = {
     }
 }
 
-// adding email property in the personalInfo object
+// Function to add email property inside personalInfo
 
 const addEmail = (employee, email) => {
 
-    return employee.personalInfo.email = email;
+    return employee.personalInfo.email = email; // Assign new email property
 }
+
+// Add email to employeeData
 
 addEmail(employeeData, "i8o9g@example.com");
 
-console.log(employeeData);
+console.log(employeeData); // Check updated object
 
-// deleting email property from the personalInfo object
+// Function to delete email from personalInfo
 
 const deleteEmail = (employee) => {
 
-    delete employee.personalInfo.email;
+    delete employee.personalInfo.email; // Remove email property
 }
+
+// Delete email from employeeData
 
 deleteEmail(employeeData);
 
-console.log(employeeData);
+console.log(employeeData); // Check updated object
 
 /*
 
-3. Write a function to clone an object (shallow copy).
+3. Shallow clone an object using spread operator.
 
 */
 
+// Function to clone object (shallow copy)
+
 const cloneObject = (obj) => {
 
-    return { ...obj };
+    return { ...obj }; // Spread operator copies only first-level properties
 }
+
+// Original object with nested address object
 
 let originalObject = {
 
@@ -129,54 +168,69 @@ let originalObject = {
 
     age: 25,
 
-    adress: {
+    address: {
 
         city: "New York",
 
         state: "NY"
-
     }
 }
 
-// If your object has nested objects, then spreading ({ ...obj }) only makes a shallow copy. That means nested references are shared between original and clone.
+// Clone originalObject
 
 let clone = cloneObject(originalObject);
 
-console.log(clone);
+console.log(clone); // Shows copied object
 
-clone.adress.city = "San Francisco";
+// Modify nested property in cloned object
 
-console.log(clone);
+clone.address.city = "San Francisco";
 
-console.log(originalObject);
+// Since it's a shallow copy, original object's nested object is also modified
+
+console.log(clone); // Shows updated city
+
+console.log(originalObject); // Also shows updated city
 
 /*
 
-4. Merge two objects. If both have the same key, the second object should overwrite.
+4. Merge two objects. Second object's keys overwrite first's if same.
 
 */
 
+// Function to merge two objects
+
 const mergeObjects = (obj1, obj2) => {
 
-    return { ...obj1, ...obj2 };
+    return { ...obj1, ...obj2 }; // Spread both objects, second overwrites
 }
+
+// First object
 
 const firstObj = { x: 1, y: 2 };
 
+// Second object (y overwrites)
+
 const secondObj = { y: 3, z: 4 };
+
+// Print merged result
 
 console.log(mergeObjects(firstObj, secondObj));
 
 /*
 
-5. Count the number of properties in an object.
+5. Count number of properties in an object.
 
 */
 
+// Function to count number of keys
+
 const countProperties = (obj) => {
 
-    return Object.keys(obj).length;
+    return Object.keys(obj).length; // Object.keys returns array of keys
 }
+
+// Print number of keys in example object
 
 console.log("The number of properties (keys) in the object is ", countProperties({ x: 1, y: 2, z: 3 }));
 
@@ -186,10 +240,13 @@ console.log("The number of properties (keys) in the object is ", countProperties
 
 */
 
+// Function to check property existence
 const hasProperty = (obj, key) => {
 
-    return obj.hasOwnProperty(key)
+    return obj.hasOwnProperty(key); // Returns true if property exists directly on object
 }
+
+// Example object
 
 let user = {
 
@@ -198,35 +255,41 @@ let user = {
     username: "John Doe"
 }
 
-console.log(hasProperty(user, "id"));
+console.log(hasProperty(user, "id")); // true
 
-console.log(hasProperty(user, "email"));
+console.log(hasProperty(user, "email")); // false
 
 /*
 
-7. Convert an object to an array of key-value pairs.
+7. Convert object to array of key-value pairs.
 
 */
 
+// Function to get array of [key, value] pairs
+
 const ObjectToPairs = (obj) => {
 
-    return Object.entries(obj);
+    return Object.entries(obj); // Returns array of arrays
 }
 
 console.log(ObjectToPairs({ a: 1, b: 2, c: 3 }));
 
 /*
 
-8. Create a function that removes a specific key from an object.
+8. Remove a specific key from an object.
 
 */
 
+// Function to remove key
+
 const removeKey = (obj, key) => {
 
-    delete obj[key];
+    delete obj[key]; // Deletes the key from object
 
-    return obj;
+    return obj; // Return updated object
 }
+
+// Example
 
 let item = { id: 1, name: "IPhone", price: 100000 };
 
@@ -234,17 +297,20 @@ console.log(removeKey(item, "id"));
 
 /*
 
-9.  Iterate over all keys and values in an object.
+9. Iterate over all keys and values in an object.
 
 */
 
+// Function to print key-value pairs
 const printObject = (obj) => {
 
-    for (let [key, value] of Object.entries(obj)) {
+    for (let [key, value] of Object.entries(obj)) { // Destructure [key, value]
 
-        console.log(`${key}: ${value}`);
+        console.log(`${key}: ${value}`); // Print in key: value format
     }
 }
+
+// Example object
 
 let userProfile = { name: "Sara", Profession: "Software Engineer" };
 
@@ -256,34 +322,44 @@ printObject(userProfile);
 
 */
 
+// Example object
+
 let sampleObj = { a: 10, b: 20, c: 30 };
 
+// Get all keys
+
 console.log(Object.keys(sampleObj));
+
+// Get all values
 
 console.log(Object.values(sampleObj));
 
 /*
 
-11. Convert an object to a string.
+11. Convert an object to a JSON string.
 
 */
 
+// Function to stringify object
+
 const objectToString = (obj) => {
 
-    return JSON.stringify(obj);
+    return JSON.stringify(obj); // Converts to JSON string
 }
 
 console.log(objectToString({ name: "John", age: 25, city: "New York" }));
 
 /*
 
-12. Convert a string to an object.
+12. Convert a JSON string back to an object.
 
 */
 
+// Function to parse JSON string
+
 const stringToObject = (str) => {
 
-    return JSON.parse(str);
+    return JSON.parse(str); // Converts string to object
 }
 
 console.log(stringToObject('{"name": "John", "age": 25, "city": "New York"}'));
@@ -294,20 +370,24 @@ console.log(stringToObject('{"name": "John", "age": 25, "city": "New York"}'));
 
 */
 
+// Function to check if object has zero keys
+
 const isEmptyObject = (obj) => {
 
     return Object.keys(obj).length === 0;
 }
 
-console.log(isEmptyObject({}));
+console.log(isEmptyObject({})); // true
 
-console.log(isEmptyObject({ name: "John", age: 25 }));
+console.log(isEmptyObject({ name: "John", age: 25 })); // false
 
 /*
 
 14. Get the first key in an object.
 
 */
+
+// Function to get first key
 
 const getFirstKey = (obj) => {
 
@@ -322,6 +402,8 @@ console.log(getFirstKey({ a: 1, b: 2, c: 3 }));
 
 */
 
+// Function to get last key
+
 const getLastKey = (obj) => {
 
     return Object.keys(obj)[Object.keys(obj).length - 1];
@@ -334,6 +416,8 @@ console.log(getLastKey({ a: 11, b: 22, c: 33 }));
 16. Get the first value in an object.
 
 */
+
+// Function to get first value
 
 const getFirstValue = (obj) => {
 
@@ -348,6 +432,8 @@ console.log(getFirstValue({ a: 100, b: 200, c: 300 }));
 
 */
 
+// Function to get last value
+
 const getLastValue = (obj) => {
 
     return Object.values(obj)[Object.values(obj).length - 1];
@@ -357,9 +443,11 @@ console.log(getLastValue({ a: 1000, b: 2000, c: 3000 }));
 
 /*
 
-18. Get the first key and value in an object.
+18. Get the first key-value pair in an object.
 
 */
+
+// Function to get first entry
 
 const getFirstKeyValuePair = (obj) => {
 
@@ -370,9 +458,11 @@ console.log(getFirstKeyValuePair({ a: 1, b: 2, c: 3 }));
 
 /*
 
-19. Get the last key and value in an object.
+19. Get the last key-value pair in an object.
 
 */
+
+// Function to get last entry
 
 const getLastKeyValuePair = (obj) => {
 
@@ -383,9 +473,11 @@ console.log(getLastKeyValuePair({ a: 10000, b: 20000, c: 30000 }));
 
 /*
 
-20. Get the sum of all values in an object.
+20. Get sum of all values in an object.
 
 */
+
+// Function to sum values
 
 const getSumOfValues = (obj) => {
 
@@ -396,9 +488,11 @@ console.log(getSumOfValues({ a: 10, b: 20, c: 30 }));
 
 /*
 
-21. Get the average of all values in an object.
+21. Get average of all values in an object.
 
 */
+
+// Function to average values
 
 const getAverageOfValues = (obj) => {
 
@@ -409,9 +503,11 @@ console.log(getAverageOfValues({ a: 10, b: 20, c: 30 }));
 
 /*
 
-22. Get the maximum value in an object.
+22. Get maximum value in an object.
 
 */
+
+// Function to find max value
 
 const getMaxValue = (obj) => {
 
@@ -422,9 +518,11 @@ console.log(getMaxValue({ a: 10, b: 20, c: 30 }));
 
 /*
 
-23. Get the minimum value in an object.
+23. Get minimum value in an object.
 
 */
+
+// Function to find min value
 
 const getMinValue = (obj) => {
 
@@ -435,9 +533,11 @@ console.log(getMinValue({ a: 10, b: 20, c: 30 }));
 
 /*
 
-24. Get the length of the longest key in an object.
+24. Get length of the longest key in an object.
 
 */
+
+// Function to find length of longest key
 
 const getLongestKey = (obj) => {
 
@@ -448,12 +548,14 @@ console.log(getLongestKey({ a: 10, b: 20, c: 30 }));
 
 /*
 
-25. Get the length of the shortest key in an object.
+25. Get length of the shortest key in an object.
 
 */
 
-const getShortestKey = (obj) => {
+// Function to find length of shortest key
 
+const getShortestKey = (obj) => {
+    
     return Math.min(...Object.keys(obj).map((key) => key.length));
 }
 
