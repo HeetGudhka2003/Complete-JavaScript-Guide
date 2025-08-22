@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap");
+
+/* RESET + BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+/* HEADING */
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1f2937;
+}
+
+/* USERS CONTAINER -> grid layout */
+
+#users-container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* EACH USER CARD */
+
+#users-container ul {
+    list-style: none;
+    padding: 2rem;
+    border: 0.1rem solid #e5e7eb;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+#users-container ul:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* LIST ITEMS */
+
+#users-container li {
+    margin: 0.3rem 0;
+    font-size: 1.5rem;
+    color: #374151;
+}
+
+/* Highlight the Name line */
+
+#users-container li:nth-child(1), #users-container li:nth-child(2) {
+    font-weight: 600;
+    color: #111827;
+}
