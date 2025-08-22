@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #f4f6fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+/* Headings */
+
+h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #333;
+    margin: 2rem 0 1.5rem 0;
+    text-align: center;
+}
+
+/* Form */
+
+form {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 40rem;
+    margin-bottom: 3rem;
+}
+
+form input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.8rem;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+form input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+form button {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+form button:hover {
+    background: #574fd6;
+}
+
+/* Registered Users */
+
+#users {
+    width: 100%;
+    max-width: 50rem;
+    margin-top: 1rem;
+}
+
+.user-card {
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.user-card strong {
+    color: #6c63ff;
+}
