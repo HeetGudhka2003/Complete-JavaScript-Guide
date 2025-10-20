@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1.6rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#main-heading {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #222;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    background-color: #0077ff;
+    color: #fff;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+button:hover {
+    background-color: #005fcc;
+}
+
+#joke {
+    font-size: 1.8rem;
+    text-align: center;
+    max-width: 60rem;
+    line-height: 1.5;
+    color: #444;
+}
