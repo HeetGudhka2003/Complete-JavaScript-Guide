@@ -53,7 +53,6 @@ printDetails.apply(userDetails2, ["Uttar Pradesh", "India"]); // Output: Anshika
 
 let printDetails2 = printDetails.bind(userDetails2, "Uttar Pradesh", "India");
 
-
 // The bound function is called here. Now it executes with the saved context and arguments.
 
 printDetails2(); // Output: Anshika Gupta Uttar Pradesh India
